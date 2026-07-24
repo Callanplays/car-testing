@@ -1,0 +1,20 @@
+{
+    "items": [
+        {
+            "name": "black_wool",
+            "nbt": "black_wool.snbt"
+        },
+        {
+            "name": "red_wool",
+            "nbt": "red_wool.snbt"
+        },
+        {
+            "name": "orange_wool",
+            "nbt": "orange_wool.snbt"
+        },
+        {
+            "name": "yellow_wool",
+            "nbt": "yellow_wool.snbt"
+        }
+    ]
+}

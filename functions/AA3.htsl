@@ -1,0 +1,158 @@
+if (var car/initialized == 0.0 0.0) {
+    var cardirx = "%var.player/dvelx%D" false
+    var cardirz = "%var.player/dvelz%D" false
+    var pcardirx = "%var.player/cardirz%D" false
+    var pcardirx *= -1.0 false
+    var pcardirz = "%var.player/cardirx%D" false
+    var car/initialized = 1 false
+}
+var accel_fwd = 0.0 false
+if (var car/state == 1 0.0) {
+    var accel_fwd = "%var.player/car/acc_fwd%D" false
+}
+if (var car/state == 2 0.0) {
+    var accel_fwd = "%var.player/car/acc_bwd%" false
+}
+if (var speedsq > %var.player/car/maxspdsq% 0.0, var accel_fwd > 0.0 0.0) {
+    var accel_fwd = 0.0 false
+}
+if () {
+    var dot_steer = "%var.player/cardirx 0.0%D" false
+    var dot_steer *= "%var.player/dvelx 0.0%D" false
+    var temp1 = "%var.player/cardirz 0.0%D" false
+    var temp1 *= "%var.player/dvelz 0.0%D" false
+    var dot_steer += "%var.player/temp1 0.0%D" false
+    var temp1 unset
+    var t = "%var.player/det%D" false
+    var t *= "%var.player/curr_turn_str%D" false
+    var steer_scale = "%var.player/speedsq%D" false
+    var steer_scale /= "%var.player/car/steer_spd%D" false
+}
+if (var steer_scale > 1.0 0.0) {
+    var steer_scale = 1.0 false
+}
+if () {
+    var t *= "%var.player/steer_scale%D" false
+    var t_sq = "%var.player/t%D" false
+    var t_sq *= "%var.player/t%D" false
+}
+if () {
+    var p_erpx = "%var.player/cardirz 0.0%D" false
+    var p_erpz = "%var.player/cardirx 0.0%D" false
+    var p_erpx *= -1.0 false
+    var c_new_x = 1.0 false
+    var c_new_x -= "%var.player/t_sq%D" false
+    var c_new_x *= "%var.player/cardirx%D" false
+    var temp1 = 2.0 false
+    var temp1 *= "%var.player/t%D" false
+    var temp1 *= "%var.player/p_erpx%D" false
+    var c_new_x += "%var.player/temp1%D" false
+    var temp1 = 1.0 false
+    var temp1 += "%var.player/t_sq%D" false
+    var c_new_x /= "%var.player/temp1%D" false
+    var c_new_z = 1.0 false
+    var c_new_z -= "%var.player/t_sq%D" false
+    var c_new_z *= "%var.player/cardirz%D" false
+    var temp1 = 2.0 false
+    var temp1 *= "%var.player/t%D" false
+    var temp1 *= "%var.player/p_erpz%D" false
+    var c_new_z += "%var.player/temp1%D" false
+    var temp1 = 1.0 false
+    var temp1 += "%var.player/t_sq%D" false
+    var c_new_z /= "%var.player/temp1%D" false
+}
+if () {
+    var heading_sq = "%var.player/c_new_x%D" false
+    var heading_sq *= "%var.player/c_new_x%D" false
+    var temp1 = "%var.player/c_new_z%D" false
+    var temp1 *= "%var.player/c_new_z%D" false
+    var heading_sq += "%var.player/temp1%D" false
+    var norm_scale = 3.0 false
+    var norm_scale -= "%var.player/heading_sq%D" false
+    var norm_scale *= 0.5 false
+}
+if (var norm_scale < 0.5 0.0) {
+    var norm_scale = 0.5 false
+}
+if (var norm_scale > 1.5 0.0) {
+    var norm_scale = 1.5 false
+}
+if () {
+    var c_new_x *= "%var.player/norm_scale%D" false
+    var c_new_z *= "%var.player/norm_scale%D" false
+}
+var cardirx = "%var.player/c_new_x%" false
+var cardirz = "%var.player/c_new_z%" false
+var pcardirx = "%var.player/cardirz%D" false
+var pcardirz = "%var.player/cardirx%D" false
+var pcardirx *= -1.0 false
+if () {
+    var fwd_speed = "%var.player/cardirx%D" false
+    var fwd_speed *= "%var.player/car/vx%D" false
+    var temp1 = "%var.player/cardirz%D" false
+    var temp1 *= "%var.player/car/vz%D" false
+    var fwd_speed += "%var.player/temp1%D" false
+    var lat_speed = "%var.player/pcardirx%D" false
+    var lat_speed *= "%var.player/car/vx%D" false
+    var temp1 = "%var.player/pcardirz%D" false
+    var temp1 *= "%var.player/car/vz%D" false
+    var lat_speed += "%var.player/temp1%D" false
+    var car/slip = "%var.player/lat_speed%D" false
+    var lat_speed *= "%var.player/side_retention%D" false
+}
+if () {
+    var new_vx = "%var.player/cardirx%D" false
+    var new_vx *= "%var.player/fwd_speed%D" false
+    var temp1 = "%var.player/pcardirx%D" false
+    var temp1 *= "%var.player/lat_speed%D" false
+    var new_vx += "%var.player/temp1%D" false
+    var new_vz = "%var.player/cardirz%D" false
+    var new_vz *= "%var.player/fwd_speed%D" false
+    var temp1 = "%var.player/pcardirz%D" false
+    var temp1 *= "%var.player/lat_speed%D" false
+    var new_vz += "%var.player/temp1%D" false
+    var temp1 = "%var.player/cardirx%D" false
+    var temp1 *= "%var.player/accel_fwd%D" false
+    var new_vx += "%var.player/temp1%D" false
+    var temp1 = "%var.player/cardirz%D" false
+    var temp1 *= "%var.player/accel_fwd%D" false
+    var new_vz += "%var.player/temp1%D" false
+    var temp1 unset
+}
+if () {
+    var retention = 1.0 false
+    var retention -= "%var.player/curr_fric%D" false
+    var new_vx *= "%var.player/retention%D" false
+    var new_vz *= "%var.player/retention%D" false
+    var drag = "%var.player/speedsq%D" false
+    var drag /= "%var.player/car/maxspdsq%D" false
+    var drag *= "%var.player/car/dragcoef%D" false
+}
+if (var drag > 0.2 0.0) {
+    var drag = 0.2 false
+}
+if () {
+    var temp1 = 1.0 false
+    var temp1 -= "%var.player/drag%D" false
+    var new_vx *= "%var.player/temp1%D" false
+    var new_vz *= "%var.player/temp1%D" false
+    var drag unset
+    var temp1 unset
+}
+if (var speedsq > %var.player/car/maxspdsq% 0.0) {
+    var new_vx *= 0.98 false
+    var new_vz *= 0.98 false
+}
+var car/vx = "%var.player/new_vx%" false
+var car/vz = "%var.player/new_vz%" false
+changeVelocity %var.player/car/vx% -8 %var.player/car/vz%
+var new_vx unset
+var new_vz unset
+var accel_fwd unset
+var det unset
+var is_drift unset
+var fwd_speed unset
+var lat_speed unset
+var side_retention unset
+var curr_fric unset
+function DCW3 false

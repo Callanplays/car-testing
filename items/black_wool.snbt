@@ -1,0 +1,5 @@
+{
+    id: "minecraft:wool",
+    Count: 1b,
+    Damage: 15s
+}
