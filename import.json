@@ -2,13 +2,6 @@
     "houseUuid": "b463812a-2e48-4f81-b0e8-b680643a567a",
     "include": [
         "functions/import.json",
-        "events/import.json",
-        "regions/import.json",
-        "items/import.json",
-        "menus/import.json",
-        "teams/import.json",
-        "groups/import.json",
-        "commands/import.json",
-        "npcs/import.json"
+        "items/import.json"
     ]
 }

@@ -1,21 +1,45 @@
-var wheel_offset_x = "%var.player/pcardirx 0.0%D" true
-var wheel_offset_x *= 0.5 true
-var wheel_offset_z = "%var.player/pcardirz 0.0%D" true
-var wheel_offset_z *= 0.5 true
-var carx = "%player.pos.x%D" true
-var cary = "%player.pos.y%D" true
-var carz = "%player.pos.z%D" true
-var tempa = "%var.player/carx 0.0%D" true
-var tempa += "%var.player/cardirx 0.0%D" true
-var tempa += "%var.player/wheel_offset_x 0.0%D" true
-var tempb = "%var.player/carz 0.0%D" true
-var tempb += "%var.player/cardirz 0.0%D" true
-var tempb += "%var.player/wheel_offset_z 0.0%D" true
-dropItem black_wool Custom_Coordinates "%var.player/tempa% %var.player/cary% %var.player/tempb%" false false false false 1 10
-var tempa = "%var.player/carx 0.0%D" true
-var tempa += "%var.player/cardirx 0.0%D" true
-var tempa -= "%var.player/wheel_offset_x 0.0%D" true
-var tempb = "%var.player/carz 0.0%D" true
-var tempb += "%var.player/cardirz 0.0%D" true
-var tempb -= "%var.player/wheel_offset_z 0.0%D" true
-dropItem black_wool Custom_Coordinates "%var.player/tempa% %var.player/cary% %var.player/tempb%" false false false false 1 10
+if () {
+    var wheel_offset_x = "%var.player/pcardirx 0.0%D" true
+    var wheel_offset_x *= 0.5 true
+    var wheel_offset_z = "%var.player/pcardirz 0.0%D" true
+    var wheel_offset_z *= 0.5 true
+    var carx = "%player.pos.x%D" true
+    var cary = "%player.pos.y%D" true
+    var carz = "%player.pos.z%D" true
+}
+if () {
+    var tempa = "%var.player/carx 0.0%D" true
+    var tempa += "%var.player/cardirx 0.0%D" true
+    var tempa += "%var.player/wheel_offset_x 0.0%D" true
+    var tempb = "%var.player/carz 0.0%D" true
+    var tempb += "%var.player/cardirz 0.0%D" true
+    var tempb += "%var.player/wheel_offset_z 0.0%D" true
+}
+dropItem black_wool Custom_Coordinates "%var.player/tempa% %var.player/cary% %var.player/tempb%" false true false false 1 100
+if () {
+    var tempa = "%var.player/carx 0.0%D" true
+    var tempa += "%var.player/cardirx 0.0%D" true
+    var tempa -= "%var.player/wheel_offset_x 0.0%D" true
+    var tempb = "%var.player/carz 0.0%D" true
+    var tempb += "%var.player/cardirz 0.0%D" true
+    var tempb -= "%var.player/wheel_offset_z 0.0%D" true
+}
+dropItem black_wool Custom_Coordinates "%var.player/tempa% %var.player/cary% %var.player/tempb%" false true false false 1 100
+if () {
+    var tempa = "%var.player/carx 0.0%D" true
+    var tempa -= "%var.player/cardirx 0.0%D" true
+    var tempa += "%var.player/wheel_offset_x 0.0%D" true
+    var tempb = "%var.player/carz 0.0%D" true
+    var tempb -= "%var.player/cardirz 0.0%D" true
+    var tempb += "%var.player/wheel_offset_z 0.0%D" true
+}
+dropItem black_wool Custom_Coordinates "%var.player/tempa% %var.player/cary% %var.player/tempb%" false true false false 1 100
+if () {
+    var tempa = "%var.player/carx 0.0%D" true
+    var tempa -= "%var.player/cardirx 0.0%D" true
+    var tempa -= "%var.player/wheel_offset_x 0.0%D" true
+    var tempb = "%var.player/carz 0.0%D" true
+    var tempb -= "%var.player/cardirz 0.0%D" true
+    var tempb -= "%var.player/wheel_offset_z 0.0%D" true
+}
+dropItem black_wool Custom_Coordinates "%var.player/tempa% %var.player/cary% %var.player/tempb%" false true false false 1 100

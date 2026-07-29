@@ -1,0 +1,36 @@
+var speedsq = "%var.player/car/vx%D" false
+var speedsq *= "%var.player/car/vx%D" false
+var temp1 = "%var.player/car/vz%D" false
+var temp1 *= "%var.player/car/vz%D" false
+var speedsq += "%var.player/temp1%D" false
+var temp1 unset
+var hud_bar = "&8■■■■■■■■" false
+if (var speedsq > 1.0 0.0) {
+    var hud_bar = "&a■&8■■■■■■■" false
+}
+if (var speedsq > 4.0 0.0) {
+    var hud_bar = "&a■■&8■■■■■■" false
+}
+if (var speedsq > 9.0 0.0) {
+    var hud_bar = "&a■■■&8■■■■■" false
+}
+if (var speedsq > 16.0 0.0) {
+    var hud_bar = "&a■■■&e■&8■■■■" false
+}
+if (var speedsq > 25.0 0.0) {
+    var hud_bar = "&a■■■&e■■&8■■■" false
+}
+if (var speedsq > 36.0 0.0) {
+    var hud_bar = "&a■■■&e■■■&8■■" false
+}
+if (var speedsq > 49.0 0.0) {
+    var hud_bar = "&a■■■&e■■■&c■&8■" false
+}
+if (var speedsq > 63.0 0.0) {
+    var hud_bar = "&a■■■&e■■■&c■■" false
+}
+var hud_mode = "&a&lGRIP" false
+if (var car/drifting == 1.0 0.0) {
+    var hud_mode = "&6&lDRIFTING" false
+}
+title "%var.player/hud_bar%" "%var.player/hud_mode%" 0 10 0

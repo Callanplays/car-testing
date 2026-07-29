@@ -1,0 +1,10 @@
+{
+    id: "minecraft:diamond_sword",
+    Count: 1b,
+    tag: {
+        display: {
+            Name: "Right click this b4 u start ig"
+        }
+    },
+    Damage: 0s
+}

@@ -29,14 +29,27 @@ var drift_req = "%var.player/car/drift_thr%D" false
 if (var speedsq < 30.0 0.0) {
     var drift_req = 0.72 false
 }
+if (!var car/state == 1 0) {
+    var drift_req *= 2.2 false
+}
 if (var is_drift == 0.0 0.0, var abs_det > %var.player/drift_req% 0.0, var speedsq > %var.player/car/drift_spd% 0.0) {
-    var is_drift = 1 false
+    var is_drift = 1.0 false
+    sound "random.fizz" 1 0.6 Invokers_Location
+}
+if () {
+    var slip_rel = "%var.player/speedsq%D" false
+    var slip_rel *= 0.02 false
+    var slip_sq = "%var.player/abs_slip%D" false
+    var slip_sq *= "%var.player/abs_slip%D" false
 }
 if (var is_drift == 1.0 0.0, var abs_det < %var.player/car/drift_exit% 0.0, var abs_slip < 0.35 0.0) {
-    var is_drift = 0 false
+    var is_drift = 0.0 false
 }
-if (var speedsq < %var.player/car/drift_spd% 0.0) {
-    var is_drift = 0 false
+if (var is_drift == 1.0 0.0, var abs_det < %var.player/car/drift_exit% 0.0, var slip_sq < %var.player/slip_rel% 0.0) {
+    var is_drift = 0.0 false
+}
+if (var speedsq < %var.player/car/drift_min% 0.0, var abs_slip < 1.0 0.0) {
+    var is_drift = 0.0 false
 }
 if () {
     var car/drifting = "%var.player/is_drift%D" false
@@ -48,12 +61,6 @@ if (var is_drift == 1.0) {
     var curr_turn_str = "%var.player/car/drift_str%D" false
     var side_retention = "%var.player/car/drift_grip%D" false
     var curr_fric = "%var.player/car/drift_frc%D" false
-}
-if (var is_drift == 0.0 0.0) {
-    title "&eSpeed: &f%var.player/speedsq%" "&a&lGRIP" 0 1 0
-}
-if (var is_drift == 1.0 0.0) {
-    title "&eSpeed: &f%var.player/speedsq%" "&6&lDRIFTING" 0 1 0
 }
 if () {
     var spark_y = "%player.pos.y%D" false
@@ -80,17 +87,15 @@ if () {
     var temp1 *= 0.5 false
     var spark_rz -= "%var.player/temp1%D" false
 }
-if (var is_drift == 0.0 0.0) {
-    dropItem black_wool Custom_Coordinates "%var.player/spark_lx% %var.player/spark_y% %var.player/spark_lz%" false false false false 1 10
-    dropItem black_wool Custom_Coordinates "%var.player/spark_rx% %var.player/spark_y% %var.player/spark_rz%" false false false false 1 10
-}
 if (var is_drift == 1.0 0.0) {
-    dropItem orange_wool Custom_Coordinates "%var.player/spark_lx% %var.player/spark_y% %var.player/spark_lz%" false false false false 1 10
-    dropItem orange_wool Custom_Coordinates "%var.player/spark_rx% %var.player/spark_y% %var.player/spark_rz%" false false false false 1 10
+    dropItem orange_wool Custom_Coordinates "%var.player/spark_lx% %var.player/spark_y% %var.player/spark_lz%" false true false false 40 100
+    dropItem orange_wool Custom_Coordinates "%var.player/spark_rx% %var.player/spark_y% %var.player/spark_rz%" false true false false 40 100
 }
 if () {
     var abs_det unset
     var abs_slip unset
+    var slip_sq unset
+    var slip_rel unset
     var drift_req unset
     var spark_lx unset
     var spark_lz unset

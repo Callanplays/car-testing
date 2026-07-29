@@ -6,12 +6,24 @@ if (var car/initialized == 0.0 0.0) {
     var pcardirz = "%var.player/cardirx%D" false
     var car/initialized = 1 false
 }
+var fwd_chk = "%var.player/cardirx 0.0%D" false
+var fwd_chk *= "%var.player/car/vx 0.0%D" false
+var temp1 = "%var.player/cardirz 0.0%D" false
+var temp1 *= "%var.player/car/vz 0.0%D" false
+var fwd_chk += "%var.player/temp1%D" false
+var temp1 unset
 var accel_fwd = 0.0 false
 if (var car/state == 1 0.0) {
     var accel_fwd = "%var.player/car/acc_fwd%D" false
 }
 if (var car/state == 2 0.0) {
     var accel_fwd = "%var.player/car/acc_bwd%" false
+}
+if (var car/state == 2 0.0, var fwd_chk > 0.3 0.0) {
+    var accel_fwd = "%var.player/car/brake%D" false
+}
+if (var car/state == 0 0.0, var fwd_chk > 0.3 0.0) {
+    var accel_fwd = "%var.player/car/eng_brk%D" false
 }
 if (var speedsq > %var.player/car/maxspdsq% 0.0, var accel_fwd > 0.0 0.0) {
     var accel_fwd = 0.0 false
@@ -86,6 +98,9 @@ var cardirz = "%var.player/c_new_z%" false
 var pcardirx = "%var.player/cardirz%D" false
 var pcardirz = "%var.player/cardirx%D" false
 var pcardirx *= -1.0 false
+if (var car/state == 1 0.0, var is_drift == 0.0 0.0) {
+    var side_retention *= 1.5 false
+}
 if () {
     var fwd_speed = "%var.player/cardirx%D" false
     var fwd_speed *= "%var.player/car/vx%D" false
@@ -149,6 +164,7 @@ changeVelocity %var.player/car/vx% -8 %var.player/car/vz%
 var new_vx unset
 var new_vz unset
 var accel_fwd unset
+var fwd_chk unset
 var det unset
 var is_drift unset
 var fwd_speed unset

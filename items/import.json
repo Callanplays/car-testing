@@ -15,6 +15,21 @@
         {
             "name": "yellow_wool",
             "nbt": "yellow_wool.snbt"
+        },
+        {
+            "name": "gass",
+            "nbt": "gass.snbt",
+            "rightClickActions": "gass_right.htsl"
+        },
+        {
+            "name": "braeeekeekee",
+            "nbt": "braeeekeekee.snbt",
+            "rightClickActions": "braeeekeekee_right.htsl"
+        },
+        {
+            "name": "right_click_this_b4_u_start_ig",
+            "nbt": "right_click_this_b4_u_start_ig.snbt",
+            "rightClickActions": "right_click_this_b4_u_start_ig_right.htsl"
         }
     ]
 }

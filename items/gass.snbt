@@ -1,0 +1,10 @@
+{
+    id: "minecraft:waterlily",
+    Count: 1b,
+    tag: {
+        display: {
+            Name: "gass"
+        }
+    },
+    Damage: 0s
+}

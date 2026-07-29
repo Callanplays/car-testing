@@ -6,9 +6,9 @@
         "FUNCTION:AA2": {
             "type": "FUNCTION",
             "identity": "AA2",
-            "hash": "0x1d61f022058480",
+            "hash": "0x1691339a1e32d7",
             "listScanHashes": {
-                "actions": "0x3e88bce74dfdd"
+                "actions": "0x1bc21d9a533266"
             },
             "itemDependencies": {
                 "version": 1,
@@ -18,9 +18,9 @@
         "FUNCTION:AA3": {
             "type": "FUNCTION",
             "identity": "AA3",
-            "hash": "0xd0b280770eac3",
+            "hash": "0x1d037c3f2f535e",
             "listScanHashes": {
-                "actions": "0x3e88bce74dfdd"
+                "actions": "0x1bc21d9a533266"
             },
             "itemDependencies": {
                 "version": 1,
@@ -30,9 +30,9 @@
         "FUNCTION:AA4": {
             "type": "FUNCTION",
             "identity": "AA4",
-            "hash": "0x147673f3f1ced5",
+            "hash": "0x19480a0f1e2a20",
             "listScanHashes": {
-                "actions": "0x3e88bce74dfdd"
+                "actions": "0x1bc21d9a533266"
             },
             "itemDependencies": {
                 "version": 1,
@@ -42,9 +42,9 @@
         "FUNCTION:AA5": {
             "type": "FUNCTION",
             "identity": "AA5",
-            "hash": "0x112b266d42d9c7",
+            "hash": "0x1eef3abb164066",
             "listScanHashes": {
-                "actions": "0x3e88bce74dfdd"
+                "actions": "0x1bc21d9a533266"
             },
             "itemDependencies": {
                 "version": 1,
@@ -54,9 +54,9 @@
         "FUNCTION:apply_acceleration": {
             "type": "FUNCTION",
             "identity": "apply_acceleration",
-            "hash": "0x8cb3a86647b4f",
+            "hash": "0x141173c2ac5316",
             "listScanHashes": {
-                "actions": "0x3e88bce74dfdd"
+                "actions": "0x1bc21d9a533266"
             },
             "itemDependencies": {
                 "version": 1,
@@ -66,20 +66,13 @@
         "FUNCTION:CA2": {
             "type": "FUNCTION",
             "identity": "CA2",
-            "hash": "0x959de78c30b14",
+            "hash": "0x103fc0dea50764",
             "listScanHashes": {
-                "actions": "0xda6b58c2f8218"
+                "actions": "0x59e9f90fe622d"
             },
             "itemDependencies": {
                 "version": 1,
                 "dependencies": [
-                    {
-                        "target": {
-                            "kind": "named",
-                            "name": "black_wool"
-                        },
-                        "fingerprint": "0xb30afa32a3359"
-                    },
                     {
                         "target": {
                             "kind": "named",
@@ -93,20 +86,13 @@
         "FUNCTION:CA3": {
             "type": "FUNCTION",
             "identity": "CA3",
-            "hash": "0x72fa749f81a00",
+            "hash": "0xff72d43d8e84",
             "listScanHashes": {
-                "actions": "0xda6b58c2f8218"
+                "actions": "0x59e9f90fe622d"
             },
             "itemDependencies": {
                 "version": 1,
                 "dependencies": [
-                    {
-                        "target": {
-                            "kind": "named",
-                            "name": "black_wool"
-                        },
-                        "fingerprint": "0xb30afa32a3359"
-                    },
                     {
                         "target": {
                             "kind": "named",
@@ -120,20 +106,13 @@
         "FUNCTION:CA4": {
             "type": "FUNCTION",
             "identity": "CA4",
-            "hash": "0xd15810a06e717",
+            "hash": "0x1fd55bbb9046",
             "listScanHashes": {
-                "actions": "0xda6b58c2f8218"
+                "actions": "0x59e9f90fe622d"
             },
             "itemDependencies": {
                 "version": 1,
                 "dependencies": [
-                    {
-                        "target": {
-                            "kind": "named",
-                            "name": "black_wool"
-                        },
-                        "fingerprint": "0xb30afa32a3359"
-                    },
                     {
                         "target": {
                             "kind": "named",
@@ -147,20 +126,13 @@
         "FUNCTION:CA5": {
             "type": "FUNCTION",
             "identity": "CA5",
-            "hash": "0x6df10f5a982b3",
+            "hash": "0x127b130b3f7dfe",
             "listScanHashes": {
-                "actions": "0xda6b58c2f8218"
+                "actions": "0x59e9f90fe622d"
             },
             "itemDependencies": {
                 "version": 1,
                 "dependencies": [
-                    {
-                        "target": {
-                            "kind": "named",
-                            "name": "black_wool"
-                        },
-                        "fingerprint": "0xb30afa32a3359"
-                    },
                     {
                         "target": {
                             "kind": "named",
@@ -174,20 +146,13 @@
         "FUNCTION:calculate_acceleration": {
             "type": "FUNCTION",
             "identity": "calculate_acceleration",
-            "hash": "0x4b10bbf00db09",
+            "hash": "0x1fc7d1cfc41cd",
             "listScanHashes": {
-                "actions": "0xda6b58c2f8218"
+                "actions": "0x59e9f90fe622d"
             },
             "itemDependencies": {
                 "version": 1,
                 "dependencies": [
-                    {
-                        "target": {
-                            "kind": "named",
-                            "name": "black_wool"
-                        },
-                        "fingerprint": "0xb30afa32a3359"
-                    },
                     {
                         "target": {
                             "kind": "named",
@@ -201,9 +166,9 @@
         "FUNCTION:DCW2": {
             "type": "FUNCTION",
             "identity": "DCW2",
-            "hash": "0x15d71633fdeb78",
+            "hash": "0x6842bf4c804a6",
             "listScanHashes": {
-                "actions": "0x1fa06f1487a163"
+                "actions": "0xc252c781211e3"
             },
             "itemDependencies": {
                 "version": 1,
@@ -221,9 +186,9 @@
         "FUNCTION:DCW3": {
             "type": "FUNCTION",
             "identity": "DCW3",
-            "hash": "0x9cf554a568856",
+            "hash": "0x1cedd36b38a65b",
             "listScanHashes": {
-                "actions": "0x1fa06f1487a163"
+                "actions": "0xc252c781211e3"
             },
             "itemDependencies": {
                 "version": 1,
@@ -241,9 +206,9 @@
         "FUNCTION:DCW4": {
             "type": "FUNCTION",
             "identity": "DCW4",
-            "hash": "0x1546b0815521c7",
+            "hash": "0x17bff989eab7a3",
             "listScanHashes": {
-                "actions": "0x1fa06f1487a163"
+                "actions": "0xc252c781211e3"
             },
             "itemDependencies": {
                 "version": 1,
@@ -261,9 +226,9 @@
         "FUNCTION:DCW5": {
             "type": "FUNCTION",
             "identity": "DCW5",
-            "hash": "0x887d85cace6e7",
+            "hash": "0x940eaa850dd18",
             "listScanHashes": {
-                "actions": "0x1fa06f1487a163"
+                "actions": "0xc252c781211e3"
             },
             "itemDependencies": {
                 "version": 1,
@@ -281,9 +246,9 @@
         "FUNCTION:Display Car Wheels": {
             "type": "FUNCTION",
             "identity": "Display Car Wheels",
-            "hash": "0x861c8a027809",
+            "hash": "0x429aaf115eaf3",
             "listScanHashes": {
-                "actions": "0x1fa06f1487a163"
+                "actions": "0xc252c781211e3"
             },
             "itemDependencies": {
                 "version": 1,
@@ -313,9 +278,9 @@
         "FUNCTION:Runner": {
             "type": "FUNCTION",
             "identity": "Runner",
-            "hash": "0xa223ffc0d721c",
+            "hash": "0x137265a9c0d8f5",
             "listScanHashes": {
-                "actions": "0x1303b639ab57f5"
+                "actions": "0x14349886905fb"
             },
             "itemDependencies": {
                 "version": 1,
@@ -325,9 +290,9 @@
         "FUNCTION:set_constants": {
             "type": "FUNCTION",
             "identity": "set_constants",
-            "hash": "0x19100016252eab",
+            "hash": "0x198f6940678cd2",
             "listScanHashes": {
-                "actions": "0x1ce9843e1b1752"
+                "actions": "0xa255df4ebfd1e"
             },
             "itemDependencies": {
                 "version": 1,
@@ -381,6 +346,30 @@
             "identity": "yellow_wool",
             "hash": "0x7ad947e74c896",
             "listScanHashes": {},
+            "itemDependencies": {
+                "version": 1,
+                "dependencies": []
+            }
+        },
+        "FUNCTION:DH2": {
+            "type": "FUNCTION",
+            "identity": "DH2",
+            "hash": "0x47ba2147ecac8",
+            "listScanHashes": {
+                "actions": "0x2d77347cc9348"
+            },
+            "itemDependencies": {
+                "version": 1,
+                "dependencies": []
+            }
+        },
+        "FUNCTION:display_hud": {
+            "type": "FUNCTION",
+            "identity": "display_hud",
+            "hash": "0x154b15d7d662b",
+            "listScanHashes": {
+                "actions": "0x65b4f64643500"
+            },
             "itemDependencies": {
                 "version": 1,
                 "dependencies": []

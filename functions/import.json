@@ -64,6 +64,13 @@
             "actions": "CA5.htsl"
         },
         {
+            "name": "display_hud",
+            "icon": {
+                "item": "minecraft:map"
+            },
+            "actions": "display_hud.htsl"
+        },
+        {
             "name": "calculate_acceleration",
             "icon": {
                 "item": "minecraft:map"
