@@ -3,7 +3,11 @@
     Count: 1b,
     tag: {
         display: {
-            Name: "gass"
+            Name: "§a§lCar Controls",
+            Lore: [
+                "§aRight-click §7- Accelerate",
+                "§cLeft-click §7- Brake"
+            ]
         }
     },
     Damage: 0s

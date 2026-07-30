@@ -13,7 +13,7 @@ if () {
     var abs_slip = "%var.player/car/slip 0.0%D" false
     var temp1 unset
 }
-if (var speedsq < 0.01 0.0, var car/state == 0.0 0.0) {
+if (var speedsq < 0.04 0.0, var car/state == 0.0 0.0) {
     var car/vx = 0.0 false
     var car/vz = 0.0 false
     var speedsq = 0.0 false
@@ -27,7 +27,7 @@ if (var abs_slip < 0.0) {
 var is_drift = "%var.player/car/drifting 0.0%D" false
 var drift_req = "%var.player/car/drift_thr%D" false
 if (var speedsq < 30.0 0.0) {
-    var drift_req = 0.72 false
+    var drift_req = 0.88 false
 }
 if (!var car/state == 1 0) {
     var drift_req *= 2.2 false
@@ -36,19 +36,13 @@ if (var is_drift == 0.0 0.0, var abs_det > %var.player/drift_req% 0.0, var speed
     var is_drift = 1.0 false
     sound "random.fizz" 1 0.6 Invokers_Location
 }
-if () {
-    var slip_rel = "%var.player/speedsq%D" false
-    var slip_rel *= 0.02 false
-    var slip_sq = "%var.player/abs_slip%D" false
-    var slip_sq *= "%var.player/abs_slip%D" false
-}
 if (var is_drift == 1.0 0.0, var abs_det < %var.player/car/drift_exit% 0.0, var abs_slip < 0.35 0.0) {
     var is_drift = 0.0 false
 }
-if (var is_drift == 1.0 0.0, var abs_det < %var.player/car/drift_exit% 0.0, var slip_sq < %var.player/slip_rel% 0.0) {
+if (var is_drift == 1.0 0.0, !var car/state == 1 0.0, var abs_det < %var.player/car/lift_exit% 0.0, var abs_slip < 0.35 0.0) {
     var is_drift = 0.0 false
 }
-if (var speedsq < %var.player/car/drift_min% 0.0, var abs_slip < 1.0 0.0) {
+if (var speedsq < %var.player/car/drift_min% 0.0, var abs_slip < 0.35 0.0) {
     var is_drift = 0.0 false
 }
 if () {
@@ -61,6 +55,10 @@ if (var is_drift == 1.0) {
     var curr_turn_str = "%var.player/car/drift_str%D" false
     var side_retention = "%var.player/car/drift_grip%D" false
     var curr_fric = "%var.player/car/drift_frc%D" false
+}
+if (var is_drift == 1.0 0.0, !var car/state == 1 0.0) {
+    var side_retention = "%var.player/car/lift_grip%D" false
+    var curr_fric = "%var.player/car/lift_frc%D" false
 }
 if () {
     var spark_y = "%player.pos.y%D" false
@@ -94,8 +92,6 @@ if (var is_drift == 1.0 0.0) {
 if () {
     var abs_det unset
     var abs_slip unset
-    var slip_sq unset
-    var slip_rel unset
     var drift_req unset
     var spark_lx unset
     var spark_lz unset

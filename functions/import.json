@@ -78,6 +78,41 @@
             "actions": "calculate_acceleration.htsl"
         },
         {
+            "name": "calculate_drive_input",
+            "icon": {
+                "item": "minecraft:map"
+            },
+            "actions": "calculate_drive_input.htsl"
+        },
+        {
+            "name": "CDI2",
+            "icon": {
+                "item": "minecraft:map"
+            },
+            "actions": "CDI2.htsl"
+        },
+        {
+            "name": "CDI3",
+            "icon": {
+                "item": "minecraft:map"
+            },
+            "actions": "CDI3.htsl"
+        },
+        {
+            "name": "CDI4",
+            "icon": {
+                "item": "minecraft:map"
+            },
+            "actions": "CDI4.htsl"
+        },
+        {
+            "name": "CDI5",
+            "icon": {
+                "item": "minecraft:map"
+            },
+            "actions": "CDI5.htsl"
+        },
+        {
             "name": "DCW2",
             "icon": {
                 "item": "minecraft:map"
@@ -120,6 +155,13 @@
             "actions": "look_vector_calculation.htsl"
         },
         {
+            "name": "initialize_car_heading",
+            "icon": {
+                "item": "minecraft:compass"
+            },
+            "actions": "initialize_car_heading.htsl"
+        },
+        {
             "name": "Runner",
             "repeatTicks": 5,
             "icon": {
@@ -136,11 +178,18 @@
         },
         {
             "name": "TPS Detector",
-            "repeatTicks": 5,
+            "repeatTicks": 4,
             "icon": {
                 "item": "minecraft:map"
             },
             "actions": "TPS_Detector.htsl"
+        },
+        {
+            "name": "toggle_car",
+            "icon": {
+                "item": "minecraft:lever"
+            },
+            "actions": "toggle_car.htsl"
         }
     ]
 }

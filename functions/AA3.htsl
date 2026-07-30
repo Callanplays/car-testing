@@ -12,22 +12,7 @@ var temp1 = "%var.player/cardirz 0.0%D" false
 var temp1 *= "%var.player/car/vz 0.0%D" false
 var fwd_chk += "%var.player/temp1%D" false
 var temp1 unset
-var accel_fwd = 0.0 false
-if (var car/state == 1 0.0) {
-    var accel_fwd = "%var.player/car/acc_fwd%D" false
-}
-if (var car/state == 2 0.0) {
-    var accel_fwd = "%var.player/car/acc_bwd%" false
-}
-if (var car/state == 2 0.0, var fwd_chk > 0.3 0.0) {
-    var accel_fwd = "%var.player/car/brake%D" false
-}
-if (var car/state == 0 0.0, var fwd_chk > 0.3 0.0) {
-    var accel_fwd = "%var.player/car/eng_brk%D" false
-}
-if (var speedsq > %var.player/car/maxspdsq% 0.0, var accel_fwd > 0.0 0.0) {
-    var accel_fwd = 0.0 false
-}
+function CDI3 false
 if () {
     var dot_steer = "%var.player/cardirx 0.0%D" false
     var dot_steer *= "%var.player/dvelx 0.0%D" false

@@ -1,7 +1,7 @@
-if (globalvar car == 1 0) {} else {
+if (var car/enabled == 1 0) {} else {
     exit
 }
-if (!var car/ver == 10 0) {
+if (!var car/ver == 15 0) {
     function set_constants false
 }
 function look_vector_calculation false

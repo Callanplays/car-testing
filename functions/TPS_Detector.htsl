@@ -1,7 +1,6 @@
 actionBar "speed2: %var.player/speedsq% drifting: %var.player/car/drifting% slip: %var.player/car/slip% heading: <%var.player/cardirx%,%var.player/cardirz%> velocity: <%var.player/car/vx%,%var.player/car/vz%>"
 if (var car/state/unix <= 0 0, !var car/state == 0) {
     var car/state = 0 false
-    chat "&f&lNO ACTION"
 }
 if (var car/state/unix > 0) {
     var car/state/unix -= 1 false

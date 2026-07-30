@@ -1,18 +1,24 @@
 if () {
     var car/maxspdsq = 64.0 false
-    var car/acc_fwd = 0.12 false
-    var car/acc_bwd = -0.09 false
-    var car/brake = -0.22 false
-    var car/eng_brk = -0.03 false
+    var car/acc_launch = 0.18 false
+    var car/acc_drop = 0.10 false
+    var car/brake = -0.28 false
+    var car/eng_brk = -0.025 false
+    var car/thr_start = 0.7 false
+    var car/thr_rise = 0.2 false
+    var car/thr_fall = 0.45 false
     var car/turn_str = 0.055 false
-    var car/drift_str = 0.07 false
+    var car/drift_str = 0.03 false
     var car/steer_spd = 2.25 false
-    var car/drift_thr = 0.45 false
-    var car/drift_exit = 0.18 false
-    var car/drift_spd = 20.0 false
+    var car/drift_thr = 0.75 false
+    var car/drift_exit = 0.28 false
+    var car/drift_spd = 32.0 false
     var car/drift_min = 8.0 false
-    var car/grip = 0.28 false
+    var car/grip = 0.2 false
     var car/drift_grip = 0.975 false
+    var car/lift_grip = 0.88 false
+    var car/lift_frc = 0.018 false
+    var car/lift_exit = 0.5 false
 }
 if () {
     var car/friction = 0.008 false
@@ -27,5 +33,6 @@ if () {
     var pcardirz = 0.0 false
     var car/drifting = 0.0 false
     var car/initialized = 0 false
-    var car/ver = 10 false
+    var car/throttle = 0.0 false
+    var car/ver = 15 false
 }

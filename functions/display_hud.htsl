@@ -33,4 +33,4 @@ var hud_mode = "&a&lGRIP" false
 if (var car/drifting == 1.0 0.0) {
     var hud_mode = "&6&lDRIFTING" false
 }
-title "%var.player/hud_bar%" "%var.player/hud_mode%" 0 10 0
+title "%var.player/hud_bar%" "%var.player/hud_mode%" 0 1 0

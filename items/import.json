@@ -5,6 +5,10 @@
             "nbt": "black_wool.snbt"
         },
         {
+            "name": "white_wool",
+            "nbt": "white_wool.snbt"
+        },
+        {
             "name": "red_wool",
             "nbt": "red_wool.snbt"
         },
@@ -19,12 +23,8 @@
         {
             "name": "gass",
             "nbt": "gass.snbt",
+            "leftClickActions": "gass_left.htsl",
             "rightClickActions": "gass_right.htsl"
-        },
-        {
-            "name": "braeeekeekee",
-            "nbt": "braeeekeekee.snbt",
-            "rightClickActions": "braeeekeekee_right.htsl"
         },
         {
             "name": "right_click_this_b4_u_start_ig",

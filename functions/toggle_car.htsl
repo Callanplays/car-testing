@@ -1,0 +1,13 @@
+if (var car/enabled == 1 0) {
+    var car/enabled = 0 false
+    function set_constants false
+    changeVelocity 0 -8 0
+    title "&c&lCAR OFF" "&7Right-click to turn it back on" 0 2 1
+    sound "random.click" 1 0.7 Invokers_Location
+} else {
+    function set_constants false
+    function initialize_car_heading false
+    var car/enabled = 1 false
+    title "&a&lCAR ON" "&7Right-click: accelerate  &8|  &7Left-click: brake" 0 2 1
+    sound "random.click" 1 1.4 Invokers_Location
+}

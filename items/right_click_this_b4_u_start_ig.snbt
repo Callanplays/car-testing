@@ -3,7 +3,7 @@
     Count: 1b,
     tag: {
         display: {
-            Name: "Right click this b4 u start ig"
+            Name: "Toggle Car"
         }
     },
     Damage: 0s
