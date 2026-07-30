@@ -10,9 +10,9 @@ if () {
     var car/turn_str = 0.055 false
     var car/drift_str = 0.03 false
     var car/steer_spd = 2.25 false
-    var car/drift_thr = 0.75 false
+    var car/drift_thr = 0.6 false
     var car/drift_exit = 0.28 false
-    var car/drift_spd = 32.0 false
+    var car/drift_spd = 24.0 false
     var car/drift_min = 8.0 false
     var car/grip = 0.2 false
     var car/drift_grip = 0.975 false
@@ -34,5 +34,5 @@ if () {
     var car/drifting = 0.0 false
     var car/initialized = 0 false
     var car/throttle = 0.0 false
-    var car/ver = 15 false
+    var car/ver = 16 false
 }

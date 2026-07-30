@@ -36,13 +36,13 @@ if (var is_drift == 0.0 0.0, var abs_det > %var.player/drift_req% 0.0, var speed
     var is_drift = 1.0 false
     sound "random.fizz" 1 0.6 Invokers_Location
 }
-if (var is_drift == 1.0 0.0, var abs_det < %var.player/car/drift_exit% 0.0, var abs_slip < 0.35 0.0) {
+if (var is_drift == 1.0 0.0, var abs_det < %var.player/car/drift_exit% 0.0, var abs_slip < 0.9 0.0) {
     var is_drift = 0.0 false
 }
-if (var is_drift == 1.0 0.0, !var car/state == 1 0.0, var abs_det < %var.player/car/lift_exit% 0.0, var abs_slip < 0.35 0.0) {
+if (var is_drift == 1.0 0.0, !var car/state == 1 0.0, var abs_det < %var.player/car/lift_exit% 0.0, var abs_slip < 0.9 0.0) {
     var is_drift = 0.0 false
 }
-if (var speedsq < %var.player/car/drift_min% 0.0, var abs_slip < 0.35 0.0) {
+if (var speedsq < %var.player/car/drift_min% 0.0, var abs_slip < 0.9 0.0) {
     var is_drift = 0.0 false
 }
 if () {
