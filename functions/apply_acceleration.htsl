@@ -14,22 +14,72 @@ var fwd_chk += "%var.player/temp1%D" false
 var temp1 unset
 function calculate_drive_input false
 if () {
-    var dot_steer = "%var.player/cardirx 0.0%D" false
-    var dot_steer *= "%var.player/dvelx 0.0%D" false
-    var temp1 = "%var.player/cardirz 0.0%D" false
-    var temp1 *= "%var.player/dvelz 0.0%D" false
-    var dot_steer += "%var.player/temp1 0.0%D" false
-    var temp1 unset
     var t = "%var.player/det%D" false
+    var t /= "%var.player/car/steer_sin%D" false
     var t *= "%var.player/curr_turn_str%D" false
-    var steer_scale = "%var.player/speedsq%D" false
-    var steer_scale /= "%var.player/car/steer_spd%D" false
+    var spd_band = 0.7 false
+    var bd_det = "%var.player/det%D" false
+    var bd_det /= "%var.player/car/steer_sin%D" false
+    var steer_dot = "%var.player/cardirx%D" false
+    var steer_dot *= "%var.player/dvelx%D" false
+    var temp1 = "%var.player/cardirz%D" false
+    var temp1 *= "%var.player/dvelz%D" false
+    var steer_dot += "%var.player/temp1%D" false
+    var car/sd = "%var.player/det%D" false
+    var temp1 unset
 }
-if (var steer_scale > 1.0 0.0) {
-    var steer_scale = 1.0 false
+if (var steer_dot < %var.player/car/steer_cos% 0.0, var det > 0.0 0.0) {
+    var t = "%var.player/curr_turn_str%D" false
+    var bd_det = 1.0 false
+}
+if (var steer_dot < %var.player/car/steer_cos% 0.0, var det < 0.0 0.0) {
+    var t = "%var.player/curr_turn_str%D" false
+    var t *= -1.0 false
+    var bd_det = -1.0 false
+}
+if (var speedsq < 1.0 0.0) {
+    var spd_band = 0.5 false
+}
+if (var speedsq > 4.0 0.0) {
+    var spd_band = 0.9 false
+}
+if (var speedsq > 16.0 0.0) {
+    var spd_band = 1.1 false
+}
+if (var speedsq > 36.0 0.0) {
+    var spd_band = 1.35 false
+}
+if (var speedsq > 64.0 0.0) {
+    var spd_band = 1.65 false
+}
+if (var bd_det < 0.0) {
+    var bd_det *= -1.0 false
+}
+var car/hud_steer = "&8■■■■" false
+if (var bd_det >= 0.25 0.0) {
+    var car/hud_steer = "&a■&8■■■" false
+}
+if (var bd_det >= 0.5 0.0) {
+    var car/hud_steer = "&a■■&8■■" false
+}
+if (var bd_det >= 0.75 0.0) {
+    var car/hud_steer = "&a■■■&e■" false
+}
+if (var bd_det >= 0.95 0.0) {
+    var car/hud_steer = "&e■■■■" false
+}
+if (var car/state == 2 0.0, var is_drift == 0.0 0.0, var speedsq > %var.player/car/bd_minspd% 0.0, var bd_det > %var.player/car/bd_thr% 0.0) {
+    var spd_band *= "%var.player/car/bd_kick%D" false
+    var side_retention = "%var.player/car/drift_entry%D" false
+    var car/drift_req = 1.0 false
 }
 if () {
-    var t *= "%var.player/steer_scale%D" false
+    var car/sr = "%var.player/bd_det%D" false
+    var car/sc = "%var.player/steer_dot%D" false
+    var bd_det unset
+    var steer_dot unset
+    var t *= "%var.player/spd_band%D" false
+    var spd_band unset
     var t_sq = "%var.player/t%D" false
     var t_sq *= "%var.player/t%D" false
 }
@@ -83,9 +133,6 @@ var cardirz = "%var.player/c_new_z%" false
 var pcardirx = "%var.player/cardirz%D" false
 var pcardirz = "%var.player/cardirx%D" false
 var pcardirx *= -1.0 false
-if (var car/state == 1 0.0, var is_drift == 0.0 0.0) {
-    var side_retention *= 1.5 false
-}
 if () {
     var fwd_speed = "%var.player/cardirx%D" false
     var fwd_speed *= "%var.player/car/vx%D" false
@@ -125,27 +172,21 @@ if () {
     var new_vx *= "%var.player/retention%D" false
     var new_vz *= "%var.player/retention%D" false
     var drag = "%var.player/speedsq%D" false
-    var drag /= "%var.player/car/maxspdsq%D" false
-    var drag *= "%var.player/car/dragcoef%D" false
-}
-if (var drag > 0.2 0.0) {
-    var drag = 0.2 false
+    var drag *= "%var.player/car/drag_k%D" false
 }
 if () {
     var temp1 = 1.0 false
     var temp1 -= "%var.player/drag%D" false
     var new_vx *= "%var.player/temp1%D" false
     var new_vz *= "%var.player/temp1%D" false
+    var car/pred_x += "%var.player/new_vx%D" false
+    var car/pred_z += "%var.player/new_vz%D" false
     var drag unset
     var temp1 unset
 }
-if (var speedsq > %var.player/car/maxspdsq% 0.0) {
-    var new_vx *= 0.98 false
-    var new_vz *= 0.98 false
-}
 var car/vx = "%var.player/new_vx%" false
 var car/vz = "%var.player/new_vz%" false
-changeVelocity %var.player/car/vx% -8 %var.player/car/vz%
+changeVelocity %var.player/car/vx% %var.player/car/vy% %var.player/car/vz%
 var new_vx unset
 var new_vz unset
 var accel_fwd unset

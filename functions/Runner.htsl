@@ -1,16 +1,41 @@
 if (var car/enabled == 1 0) {} else {
     exit
 }
-if (!var car/ver == 15 0) {
+if (!var car/ver == 42 0) {
     function set_constants false
 }
 function look_vector_calculation false
+if (var car/debug == 1 0.0) {
+    actionBar "s2:%var.player/speedsq% in:%var.player/car/state% drift:%var.player/car/drifting% st:%var.player/car/sr% det:%var.player/car/sd% dot:%var.player/car/sc% hit:%var.player/car/impact% v:%var.player/car/vx%,%var.player/car/vy%,%var.player/car/vz%"
+} else {
+    actionBar "&7Thr %var.player/car/hud_thr% &7Steer %var.player/car/hud_steer% &7Grip %var.player/car/hud_grip% %var.player/car/hud_brake% %var.player/car/hud_crash% &7d:%var.player/car/sd% o:%var.player/car/sc% s:%var.player/car/sr%"
+}
 pause 1
-function CA2 false
+function FA2 false
+if (var car/debug == 1 0.0) {
+    actionBar "s2:%var.player/speedsq% in:%var.player/car/state% drift:%var.player/car/drifting% st:%var.player/car/sr% det:%var.player/car/sd% dot:%var.player/car/sc% hit:%var.player/car/impact% v:%var.player/car/vx%,%var.player/car/vy%,%var.player/car/vz%"
+} else {
+    actionBar "&7Thr %var.player/car/hud_thr% &7Steer %var.player/car/hud_steer% &7Grip %var.player/car/hud_grip% %var.player/car/hud_brake% %var.player/car/hud_crash% &7d:%var.player/car/sd% o:%var.player/car/sc% s:%var.player/car/sr%"
+}
 pause 1
-function CA3 false
+function FA3 false
+if (var car/debug == 1 0.0) {
+    actionBar "s2:%var.player/speedsq% in:%var.player/car/state% drift:%var.player/car/drifting% st:%var.player/car/sr% det:%var.player/car/sd% dot:%var.player/car/sc% hit:%var.player/car/impact% v:%var.player/car/vx%,%var.player/car/vy%,%var.player/car/vz%"
+} else {
+    actionBar "&7Thr %var.player/car/hud_thr% &7Steer %var.player/car/hud_steer% &7Grip %var.player/car/hud_grip% %var.player/car/hud_brake% %var.player/car/hud_crash% &7d:%var.player/car/sd% o:%var.player/car/sc% s:%var.player/car/sr%"
+}
 pause 1
-function CA4 false
+function FA4 false
+if (var car/debug == 1 0.0) {
+    actionBar "s2:%var.player/speedsq% in:%var.player/car/state% drift:%var.player/car/drifting% st:%var.player/car/sr% det:%var.player/car/sd% dot:%var.player/car/sc% hit:%var.player/car/impact% v:%var.player/car/vx%,%var.player/car/vy%,%var.player/car/vz%"
+} else {
+    actionBar "&7Thr %var.player/car/hud_thr% &7Steer %var.player/car/hud_steer% &7Grip %var.player/car/hud_grip% %var.player/car/hud_brake% %var.player/car/hud_crash% &7d:%var.player/car/sd% o:%var.player/car/sc% s:%var.player/car/sr%"
+}
 pause 1
-function CA5 false
+function FA5 false
+if (var car/debug == 1 0.0) {
+    actionBar "s2:%var.player/speedsq% in:%var.player/car/state% drift:%var.player/car/drifting% st:%var.player/car/sr% det:%var.player/car/sd% dot:%var.player/car/sc% hit:%var.player/car/impact% v:%var.player/car/vx%,%var.player/car/vy%,%var.player/car/vz%"
+} else {
+    actionBar "&7Thr %var.player/car/hud_thr% &7Steer %var.player/car/hud_steer% &7Grip %var.player/car/hud_grip% %var.player/car/hud_brake% %var.player/car/hud_crash% &7d:%var.player/car/sd% o:%var.player/car/sc% s:%var.player/car/sr%"
+}
 function display_hud false

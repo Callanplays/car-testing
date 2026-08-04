@@ -33,4 +33,4 @@ if (var temp3 >= 90.0 0.0, var temp3 < 270.0 0.0) {
 var temp1 unset
 var temp2 unset
 var temp3 unset
-function calculate_acceleration false
+function force_accel false

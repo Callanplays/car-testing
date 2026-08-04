@@ -1,6 +1,7 @@
+function Ramp3 false
 var accel_fwd = 0.0 false
 var speed_ratio = "%var.player/speedsq%D" false
-var speed_ratio /= "%var.player/car/maxspdsq%D" false
+var speed_ratio /= "%var.player/car/accel_ref%D" false
 if (var speed_ratio > 1.0 0.0) {
     var speed_ratio = 1.0 false
 }
@@ -27,23 +28,41 @@ if (!var car/state == 1 0.0) {
 if (var car/throttle < 0.0 0.0) {
     var car/throttle = 0.0 false
 }
+var car/hud_thr = "&8■■■■■" false
+if (var car/throttle >= 0.2 0.0) {
+    var car/hud_thr = "&a■&8■■■■" false
+}
+if (var car/throttle >= 0.4 0.0) {
+    var car/hud_thr = "&a■■&8■■■" false
+}
+if (var car/throttle >= 0.6 0.0) {
+    var car/hud_thr = "&a■■■&8■■" false
+}
+if (var car/throttle >= 0.8 0.0) {
+    var car/hud_thr = "&a■■■■&8■" false
+}
+if (var car/throttle >= 0.95 0.0) {
+    var car/hud_thr = "&a■■■■■" false
+}
+var brake_force = "%var.player/car/brake%D" false
+if (var car/drifting == 1.0 0.0) {
+    var brake_force = "%var.player/car/drift_brake%D" false
+}
 if (var car/state == 2 0.0, var fwd_chk > 0.12 0.0) {
-    var accel_fwd = "%var.player/car/brake%D" false
+    var accel_fwd = "%var.player/brake_force%D" false
 }
 if (var car/state == 2 0.0, var fwd_chk < -0.12 0.0) {
-    var accel_fwd = "%var.player/car/brake%D" false
+    var accel_fwd = "%var.player/brake_force%D" false
     var accel_fwd *= -1.0 false
 }
-if (var car/state == 0 0.0, var fwd_chk > 0.05 0.0) {
+if (var car/state == 0 0.0, var car/drifting == 0.0 0.0, var fwd_chk > 0.05 0.0) {
     var accel_fwd = "%var.player/car/eng_brk%D" false
 }
-if (var car/state == 0 0.0, var fwd_chk < -0.05 0.0) {
+if (var car/state == 0 0.0, var car/drifting == 0.0 0.0, var fwd_chk < -0.05 0.0) {
     var accel_fwd = "%var.player/car/eng_brk%D" false
     var accel_fwd *= -1.0 false
-}
-if (var car/state == 1 0.0, var speedsq > %var.player/car/maxspdsq% 0.0, var fwd_chk > 0.0 0.0) {
-    var accel_fwd = 0.0 false
 }
 var speed_ratio unset
 var accel_drop unset
 var drive_acc unset
+var brake_force unset

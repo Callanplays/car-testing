@@ -1,0 +1,152 @@
+if () {
+    var was_drift = "%var.player/car/drifting 0.0%D" false
+    var speedsq = "%var.player/car/vx%D" false
+    var speedsq *= "%var.player/car/vx%D" false
+    var temp1 = "%var.player/car/vz%D" false
+    var temp1 *= "%var.player/car/vz%D" false
+    var speedsq += "%var.player/temp1%D" false
+    var det = "%var.player/cardirx%D" false
+    var det *= "%var.player/dvelz%D" false
+    var temp1 = "%var.player/cardirz%D" false
+    var temp1 *= "%var.player/dvelx%D" false
+    var det -= "%var.player/temp1%D" false
+    var abs_det = "%var.player/det%D" false
+    var abs_slip = "%var.player/car/slip 0.0%D" false
+    var temp1 unset
+}
+if (var speedsq < 0.04 0.0, var car/state == 0.0 0.0) {
+    var car/vx = 0.0 false
+    var car/vz = 0.0 false
+    var speedsq = 0.0 false
+}
+if (var abs_det < 0.0) {
+    var abs_det *= -1.0 false
+}
+if (var abs_slip < 0.0) {
+    var abs_slip *= -1.0 false
+}
+if () {
+    var slip_ratio_sq = "%var.player/abs_slip%D" false
+    var slip_ratio_sq *= "%var.player/abs_slip%D" false
+}
+if (var speedsq > 0.04 0.0) {
+    var slip_ratio_sq /= "%var.player/speedsq%D" false
+} else {
+    var slip_ratio_sq = 0.0 false
+}
+if () {
+    var car/traction = "%var.player/slip_ratio_sq%D" false
+    var is_drift = 0.0 false
+    var car/drifting = 0.0 false
+    var curr_turn_str = "%var.player/car/fg_turn%D" false
+    var side_retention = "%var.player/car/grip_base%D" false
+    var grip_extra = "%var.player/slip_ratio_sq%D" false
+    var grip_extra *= "%var.player/car/grip_gain%D" false
+    var side_retention += "%var.player/grip_extra%D" false
+    var curr_fric = "%var.player/car/friction%D" false
+}
+if (var side_retention > %var.player/car/grip_max% 0.0) {
+    var side_retention = "%var.player/car/grip_max%D" false
+}
+if (var car/drift_req == 1.0 0.0, var speedsq > %var.player/car/bd_minspd% 0.0) {
+    var is_drift = 1.0 false
+    var car/drifting = 1.0 false
+    var curr_turn_str = "%var.player/car/drift_str%D" false
+    var curr_fric = "%var.player/car/drift_frc%D" false
+}
+if (var was_drift == 1.0 0.0, var slip_ratio_sq > %var.player/car/drift_exit2% 0.0, var speedsq > %var.player/car/bd_minspd% 0.0) {
+    var is_drift = 1.0 false
+    var car/drifting = 1.0 false
+    var curr_turn_str = "%var.player/car/drift_str%D" false
+    var curr_fric = "%var.player/car/drift_frc%D" false
+}
+var curr_turn_str *= "%var.player/car/air_steer%D" false
+var curr_fric *= "%var.player/car/air_steer%D" false
+var is_drift *= "%var.player/car/air_steer%D" false
+var car/drifting *= "%var.player/car/air_steer%D" false
+var car/drift_req = 0.0 false
+if (var was_drift == 0.0 0.0, var car/drifting == 1.0 0.0) {
+    sound "random.fizz" 1 0.6 Invokers_Location
+}
+var car/hud_grip = "&8■■■■■" false
+if (var car/traction >= 0.0025 0.0) {
+    var car/hud_grip = "&a■&8■■■■" false
+}
+if (var car/traction >= 0.01 0.0) {
+    var car/hud_grip = "&a■■&8■■■" false
+}
+if (var car/traction >= 0.0225 0.0) {
+    var car/hud_grip = "&a■■&e■&8■■" false
+}
+if (var car/traction >= 0.04 0.0) {
+    var car/hud_grip = "&a■■&e■■&8■" false
+}
+if (var car/traction >= 0.0625 0.0) {
+    var car/hud_grip = "&a■■&e■■&c■" false
+}
+if (var car/drifting == 1.0 0.0) {
+    var car/hud_grip = "&c■■■■■" false
+}
+if (var is_drift == 1.0 0.0, var abs_slip >= 0.01 0.0) {
+    var force = "%var.player/car/drift_force%D" false
+}
+if (var is_drift == 1.0 0.0, var abs_det < %var.player/car/drift_stra% 0.0) {
+    var force = "%var.player/car/drift_recov%D" false
+}
+if (var is_drift == 1.0 0.0, var abs_slip >= 0.01 0.0) {
+    var side_retention = "%var.player/force%D" false
+    var side_retention /= "%var.player/abs_slip%D" false
+    var side_retention *= -1.0 false
+    var side_retention += 1.0 false
+}
+if (var side_retention < 0.0 0.0) {
+    var side_retention = 0.0 false
+}
+var air_slide = 1.0 false
+var air_slide -= "%var.player/car/air_steer%D" false
+var side_retention *= "%var.player/car/air_steer%D" false
+var side_retention += "%var.player/air_slide%D" false
+if () {
+    var spark_y = "%player.pos.y%D" false
+    var spark_lx = "%player.pos.x%D" false
+    var spark_lx -= "%var.player/cardirx%D" false
+    var temp1 = "%var.player/pcardirx%D" false
+    var temp1 *= 0.5 false
+    var spark_lx += "%var.player/temp1%D" false
+    var spark_lz = "%player.pos.z%D" false
+    var spark_lz -= "%var.player/cardirz%D" false
+    var temp1 = "%var.player/pcardirz%D" false
+    var temp1 *= 0.5 false
+    var spark_lz += "%var.player/temp1%D" false
+}
+if () {
+    var spark_rx = "%player.pos.x%D" false
+    var spark_rx -= "%var.player/cardirx%D" false
+    var temp1 = "%var.player/pcardirx%D" false
+    var temp1 *= 0.5 false
+    var spark_rx -= "%var.player/temp1%D" false
+    var spark_rz = "%player.pos.z%D" false
+    var spark_rz -= "%var.player/cardirz%D" false
+    var temp1 = "%var.player/pcardirz%D" false
+    var temp1 *= 0.5 false
+    var spark_rz -= "%var.player/temp1%D" false
+}
+if (var is_drift == 1.0 0.0) {
+    dropItem red_wool Custom_Coordinates "%var.player/spark_lx% %var.player/spark_y% %var.player/spark_lz%" false true false false 40 100
+    dropItem red_wool Custom_Coordinates "%var.player/spark_rx% %var.player/spark_y% %var.player/spark_rz%" false true false false 40 100
+}
+if () {
+    var abs_det unset
+    var abs_slip unset
+    var slip_ratio_sq unset
+    var grip_extra unset
+    var spark_lx unset
+    var spark_lz unset
+    var spark_rx unset
+    var spark_rz unset
+    var spark_y unset
+    var force unset
+    var was_drift unset
+    var air_slide unset
+}
+function AA5 false

@@ -36,34 +36,6 @@
             "actions": "apply_acceleration.htsl"
         },
         {
-            "name": "CA2",
-            "icon": {
-                "item": "minecraft:map"
-            },
-            "actions": "CA2.htsl"
-        },
-        {
-            "name": "CA3",
-            "icon": {
-                "item": "minecraft:map"
-            },
-            "actions": "CA3.htsl"
-        },
-        {
-            "name": "CA4",
-            "icon": {
-                "item": "minecraft:map"
-            },
-            "actions": "CA4.htsl"
-        },
-        {
-            "name": "CA5",
-            "icon": {
-                "item": "minecraft:map"
-            },
-            "actions": "CA5.htsl"
-        },
-        {
             "name": "display_hud",
             "icon": {
                 "item": "minecraft:map"
@@ -71,11 +43,74 @@
             "actions": "display_hud.htsl"
         },
         {
-            "name": "calculate_acceleration",
+            "name": "force_accel",
             "icon": {
                 "item": "minecraft:map"
             },
-            "actions": "calculate_acceleration.htsl"
+            "actions": "force_accel.htsl"
+        },
+        {
+            "name": "FA2",
+            "icon": {
+                "item": "minecraft:map"
+            },
+            "actions": "FA2.htsl"
+        },
+        {
+            "name": "FA3",
+            "icon": {
+                "item": "minecraft:map"
+            },
+            "actions": "FA3.htsl"
+        },
+        {
+            "name": "FA4",
+            "icon": {
+                "item": "minecraft:map"
+            },
+            "actions": "FA4.htsl"
+        },
+        {
+            "name": "FA5",
+            "icon": {
+                "item": "minecraft:map"
+            },
+            "actions": "FA5.htsl"
+        },
+        {
+            "name": "Ramp1",
+            "icon": {
+                "item": "minecraft:minecart"
+            },
+            "actions": "Ramp1.htsl"
+        },
+        {
+            "name": "Ramp2",
+            "icon": {
+                "item": "minecraft:minecart"
+            },
+            "actions": "Ramp2.htsl"
+        },
+        {
+            "name": "Ramp3",
+            "icon": {
+                "item": "minecraft:minecart"
+            },
+            "actions": "Ramp3.htsl"
+        },
+        {
+            "name": "Ramp4",
+            "icon": {
+                "item": "minecraft:minecart"
+            },
+            "actions": "Ramp4.htsl"
+        },
+        {
+            "name": "Ramp5",
+            "icon": {
+                "item": "minecraft:minecart"
+            },
+            "actions": "Ramp5.htsl"
         },
         {
             "name": "calculate_drive_input",

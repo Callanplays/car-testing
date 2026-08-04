@@ -1,0 +1,69 @@
+if () {
+    var ramp_y = "%player.pos.y%D" false
+    var ramp_dy = "%var.player/ramp_y%D" false
+    var ramp_dy -= "%var.player/car/y_tick%D" false
+    var ramp_cmd = "%var.player/car/vy%D" false
+    var ramp_speed = "%var.player/fwd_chk%D" false
+    var car/y_tick = "%var.player/ramp_y%D" false
+}
+if (var car/airborne == 1.0 0.0) {
+    var car/vy += "%var.player/car/gravity%D" false
+} else {
+    var observed_vy = "%var.player/ramp_dy%D" false
+    var observed_vy /= "%var.player/car/vel_scale%D" false
+    var car/vy = "%var.player/observed_vy%D" false
+    var car/vy += "%var.player/car/gravity%D" false
+}
+if (var ramp_speed < 0.0 0.0) {
+    var ramp_speed *= -1.0 false
+}
+if (var car/airborne == 0.0 0.0, var ramp_dy > %var.player/car/ramp_up% 0.0, var ramp_speed > %var.player/car/ramp_min% 0.0, var ramp_cmd <= 0.0 0.0) {
+    var car/ramp_ticks = "%var.player/car/ramp_hold%D" false
+    var car/ramp_rises += 1.0 false
+}
+if (var car/ramp_ticks > 0.0 0.0, var car/airborne == 0.0 0.0) {
+    var car/ramp_ticks -= 1.0 false
+}
+if (var car/ramp_ticks > 0.0 0.0, var car/airborne == 0.0 0.0, var ramp_dy >= %var.player/car/ramp_fall% 0.0) {
+    var ramp_add = "%var.player/speedsq%D" false
+    var ramp_add *= "%var.player/car/ramp_rate%D" false
+    var car/ramp_charge += "%var.player/ramp_add%D" false
+}
+if (var car/ramp_charge > %var.player/car/ramp_max% 0.0) {
+    var car/ramp_charge = "%var.player/car/ramp_max%D" false
+}
+if (var car/ramp_ticks > 0.0 0.0, var car/ramp_rises >= %var.player/car/ramp_need% 0.0, var car/ramp_charge >= %var.player/car/ramp_cmin% 0.0, var ramp_dy < %var.player/car/ramp_fall% 0.0, var car/airborne == 0.0 0.0) {
+    sound "random.bow" 0.7 1.4 Invokers_Location
+    var car/vy = "%var.player/car/ramp_charge%D" false
+    var car/airborne = 1.0 false
+    var car/air_steer = 0.0 false
+    var car/land_hits = 0.0 false
+    var car/ramp_ticks = 0.0 false
+    var car/ramp_rises = 0.0 false
+    var car/ramp_charge = 0.0 false
+}
+if (var car/airborne == 1.0 0.0, var ramp_cmd < 0.0 0.0, var ramp_dy >= %var.player/car/ramp_fall% 0.0) {
+    var car/land_hits += 1.0 false
+} else {
+    var car/land_hits = 0.0 false
+}
+if (var car/airborne == 1.0 0.0, var car/land_hits >= 2.0 0.0) {
+    var car/airborne = 0.0 false
+    var car/air_steer = 1.0 false
+    var car/land_hits = 0.0 false
+    var car/vy = "%var.player/car/ramp_push%D" false
+}
+if (var car/ramp_ticks > 0.0 0.0, var ramp_dy >= %var.player/car/ramp_fall% 0.0, var car/airborne == 0.0 0.0) {
+    var car/vy = "%var.player/car/ramp_push%D" false
+}
+if (var car/ramp_ticks <= 0.0 0.0, var car/airborne == 0.0 0.0) {
+    var car/ramp_rises = 0.0 false
+    var car/ramp_charge = 0.0 false
+}
+var ramp_y unset
+var ramp_dy unset
+var ramp_cmd unset
+var observed_vy unset
+var ramp_speed unset
+var ramp_add unset
+
