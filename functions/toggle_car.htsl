@@ -8,6 +8,6 @@ if (var car/enabled == 1 0) {
     function set_constants false
     function initialize_car_heading false
     var car/enabled = 1 false
-    title "&a&lCAR ON" "&7Right-click: accelerate  &8|  &7Left-click: brake" 0 2 1
+    title "&a&lCAR ON" "&7Right-click: accelerate  &8|  &7Left-click repeatedly: brake" 0 2 1
     sound "random.click" 1 1.4 Invokers_Location
 }

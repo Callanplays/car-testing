@@ -1,2 +1,4 @@
 var car/state = 2 false
 var car/state/unix = 1 false
+var car/hud_brake = "&c&lBRAKE" false
+sound "random.click" 0.5 0.6 Invokers_Location

@@ -6,7 +6,7 @@
             Name: "§a§lCar Controls",
             Lore: [
                 "§aRight-click §7- Accelerate",
-                "§cLeft-click §7- Brake"
+                "§cLeft-click repeatedly §7- Brake"
             ]
         }
     },
